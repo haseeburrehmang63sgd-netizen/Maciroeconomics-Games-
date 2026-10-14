@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Macro Mission: Save Econia!</title>
+<style>
+:root{--night:#10172b;--panel:#192440;--panel2:#202e50;--text:#f5f7ff;--muted:#b8c4df;--cyan:#52e0d0;--yellow:#ffd166;--pink:#ff719a;--green:#68e0a4;--line:#354568}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,#263c70 0,#10172b 45%,#0b1020 100%);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;padding:18px}.hero{padding:28px 22px;border:1px solid #40547f;border-radius:24px;background:linear-gradient(135deg,#273c6b,#182441 70%);position:relative;overflow:hidden}
+.hero:after{content:"🌍";position:absolute;font-size:115px;right:18px;top:8px;opacity:.17;transform:rotate(-12deg)}.eyebrow{color:var(--cyan);font-size:.78rem;letter-spacing:.15em;font-weight:900}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:9px 0}.hero p{max-width:680px;color:#d9e3fb;margin:0}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.between{justify-content:space-between}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.chip{background:#101a32;border:1px solid #43577f;border-radius:99px;padding:7px 11px;color:#dfe8ff;font-size:.85rem}
+.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}.panel{background:linear-gradient(160deg,#1a2745,#151f38);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 12px 30px #0002}.wide{grid-column:1/-1}h2{font-size:1.2rem;margin:0 0 12px}h3{font-size:1rem;margin:0 0 8px}.muted{color:var(--muted);font-size:.9rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.stat{background:#101a31;border:1px solid #2f4167;border-radius:14px;padding:12px}.stat span{font-size:.75rem;color:var(--muted);display:block}.stat strong{font-size:1.25rem;display:block;margin-top:3px}.stat .emoji{font-size:1.35rem}
+select,button{font:inherit;border-radius:11px;padding:11px 12px;width:100%;border:1px solid #465a80;background:#101a31;color:var(--text)}label{display:block;font-weight:750;font-size:.87rem;margin-bottom:6px}.controls{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+button{background:var(--cyan);color:#102039;border:0;font-weight:900;cursor:pointer;transition:transform .12s,filter .12s}button:hover{filter:brightness(1.08);transform:translateY(-1px)}button.alt{background:#2c3d62;color:white;border:1px solid #50658e}button.yellow{background:var(--yellow);color:#30230b}.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.buttons button{flex:1 1 145px}
+.mission{border:1px solid #4c5f88;background:linear-gradient(135deg,#25365a,#1a2744);padding:15px;border-radius:15px;margin-top:12px}.mission .tag{color:var(--yellow);font-weight:900;font-size:.8rem;letter-spacing:.1em}.mission h3{font-size:1.15rem;margin:5px 0}.mission p{margin:4px 0;color:#e1e9ff}
+.meter{height:9px;background:#0c1428;border-radius:99px;overflow:hidden;margin-top:7px}.meter div{height:100%;width:50%;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--green));transition:width .4s}
+.event{border-left:4px solid var(--yellow);background:#302a34;padding:13px;border-radius:8px;margin-top:12px}.event strong{color:var(--yellow)}
+canvas{width:100%;height:245px;background:#0d162b;border:1px solid #2f4167;border-radius:13px;display:block}.graphs{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.result{padding:14px;border-radius:13px;background:#12382f;border:1px solid #2b8c70;margin-top:12px}.result.bad{background:#3c2633;border-color:#9c4968}.result h3{margin-bottom:5px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.badge{padding:8px 10px;border-radius:10px;background:#2d3a58;border:1px solid #46577a;font-size:.82rem}.badge.earned{background:#253f37;border-color:#4fa984;color:#baf7d9}
+.quizq{background:#101a31;border:1px solid #2f4167;border-radius:13px;padding:13px;margin:10px 0}.quizq p{font-weight:800;margin:0 0 9px}.quizq label{font-weight:400;display:flex;gap:8px;margin:8px 0}.quizq input{accent-color:var(--cyan);margin-top:5px}.foot{text-align:center;color:#8f9fbe;font-size:.82rem;padding:22px 0 8px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.wide{grid-column:auto}.stats{grid-template-columns:repeat(2,1fr)}.graphs{grid-template-columns:1fr}.controls{grid-template-columns:1fr}.hero:after{font-size:75px;right:5px;top:8px}.hero{padding:22px 16px}}
+</style></head>
+<body><main class="wrap">
+<section class="hero">
+<div class="eyebrow">OPEN-ECONOMY STRATEGY GAME · CLO 1</div>
+<h1>🚨 Macro Mission:<br>Save Econia!</h1>
+<p>Econia is facing economic trouble. You’re the new Chief Economic Strategist. Make the right policy call, protect your country, and earn your way from Rookie Economist to Macro Master.</p>
+<div class="chips"><span class="chip">🎮 Choose your strategy</span><span class="chip">📈 Watch curves shift</span><span class="chip">🏆 Earn badges</span><span class="chip">🧠 Learn by doing</span></div>
+</section>
+<div class="layout">
+<section class="panel">
+<div class="row between"><h2>🗺️ Mission Control</h2><span class="chip" id="level">LEVEL 1 · ROOKIE</span></div>
+<div class="mission"><div class="tag" id="missionTag">YOUR FIRST CHALLENGE</div><h3 id="missionTitle">The Spending Surge</h3><p id="missionText">The government wants to spend more to create jobs. What happens if Econia lets its currency float?</p></div>
+<div class="controls" style="margin-top:14px">
+<div><label for="regime">🪙 Exchange-rate system</label><select id="regime"><option value="float">Floating — currency can move</option><option value="fixed">Fixed — defend the peg</option></select></div>
+<div><label for="shock">⚡ Economic event</label><select id="shock"><option value="fiscal">Government spending rises (↑ G)</option><option value="monetary">Money supply rises (↑ M)</option><option value="foreign">Foreign income rises (↑ Y*)</option><option value="risk">Investors move money abroad</option></select></div>
+<div><label for="mobility">🌐 Capital mobility</label><select id="mobility"><option value="high">High — money moves quickly</option><option value="limited">Limited — money moves slowly</option></select></div>
+<div><label for="goal">🎯 Your mission objective</label><select id="goal"><option value="output">Boost output and jobs</option><option value="stability">Keep the currency stable</option><option value="trade">Support net exports</option></select></div>
+</div>
+<div class="buttons"><button id="decide">🚀 Make My Policy Call</button><button class="alt" id="next">🎲 Next Challenge</button></div>
+<div class="event" id="event"><strong>LIVE BRIEFING:</strong> Econia needs a smart policy choice. Select your settings and make your call!</div>
+</section>
+<section class="panel">
+<h2>🏆 Your Economist Profile</h2>
+<div class="stats">
+<div class="stat"><span>⭐ SCORE</span><strong id="score">0</strong></div><div class="stat"><span>🔥 STREAK</span><strong id="streak">0</strong></div>
+<div class="stat"><span>🌍 ECONOMY</span><strong id="health">100%</strong></div><div class="stat"><span>🧭 RANK</span><strong id="rank">Rookie</strong></div>
+</div>
+<h3 style="margin-top:18px">Economic stability meter</h3><div class="meter"><div id="healthbar"></div></div>
+<p class="muted" id="rankTip">Make thoughtful decisions to earn points and unlock badges.</p>
+<h3 style="margin-top:17px">🎖️ Achievement badges</h3>
+<div class="badges"><span class="badge" id="b1">🔒 Peg Protector</span><span class="badge" id="b2">💸 Money Wizard</span><span class="badge" id="b3">📊 Curve Detective</span><span class="badge" id="b4">🌐 Trade Tactician</span></div>
+</section>
+<section class="panel wide">
+<div class="row between"><h2>📡 Results from Econia</h2><span class="chip" id="status">Waiting for your decision</span></div>
+<div class="stats">
+<div class="stat"><span>📦 OUTPUT (Y)</span><strong id="y">—</strong></div><div class="stat"><span>📈 INTEREST RATE (r)</span><strong id="r">—</strong></div>
+<div class="stat"><span>💱 EXCHANGE RATE</span><strong id="e">—</strong></div><div class="stat"><span>🚢 NET EXPORTS (NX)</span><strong id="nx">—</strong></div>
+</div>
+<div class="graphs" style="margin-top:15px"><div><h3>IS–LM: Where's equilibrium?</h3><canvas id="islm" width="600" height="320"></canvas><p class="muted">IS = goods market · LM = money market. The curves help show how output and interest rates respond.</p></div><div><h3>BP: International balance</h3><canvas id="bp" width="600" height="320"></canvas><p class="muted">With high capital mobility, the BP curve is nearly horizontal at the world interest rate.</p></div></div>
+<div class="result" id="explanation"><h3>🧠 Strategy debrief</h3>Make your policy call to reveal what happens and why.</div>
+</section>
+<section class="panel wide">
+<div class="row between"><h2>🧩 The Economist's Quick Quiz</h2><span class="chip">5 questions · bonus points</span></div>
+<p class="muted">Prove you understand the model. Pick one answer per question, then check your answers.</p><div id="quiz"></div>
+<div class="buttons"><button id="checkQuiz">🧠 Check Answers (+ bonus points)</button><button class="alt" id="retryQuiz">🔄 Try Again</button></div><div id="quizFeedback" style="margin-top:12px;font-weight:800"></div>
+</section>
+<section class="panel wide"><h2>🧠 Cheatsheet: The two big rules</h2><div class="graphs">
+<div><h3>🌊 Floating exchange rate</h3><ul><li>Fiscal expansion → currency appreciation → net exports fall; output changes little under high capital mobility.</li><li>Monetary expansion → depreciation → net exports rise → output rises.</li><li>The exchange rate can move to help balance international flows.</li></ul></div>
+<div><h3>⚓ Fixed exchange rate</h3><ul><li>Fiscal expansion is powerful: central-bank intervention expands money supply and supports output.</li><li>Independent monetary expansion is ineffective: the central bank reverses it to defend the peg.</li><li>Defending the peg may use foreign reserves during capital outflows.</li></ul></div></div><p class="muted">These are standard textbook predictions for a small open economy. The strongest results assume high/perfect capital mobility and sticky prices in the short run; real-world outcomes can differ.</p></section>
+</div><div class="foot">Made for learning economics through play · Macro Mission: Save Econia!</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);let score=0,streak=0,health=100,round=0,quizBonus=false,usedBadges={};
+const missions=[
+{tag:"YOUR FIRST CHALLENGE",title:"The Spending Surge",text:"The government wants to spend more to create jobs. What happens if Econia lets its currency float?",shock:"fiscal",regime:"float"},
+{tag:"CURRENCY UNDER PRESSURE",title:"The Money Machine",text:"The central bank pumps more money into the economy. Can you predict what happens to the currency?",shock:"monetary",regime:"float"},
+{tag:"DEFEND THE PEG!",title:"The Peg Is in Danger",text:"Investors are moving money abroad. Econia promises a fixed exchange rate. Can the central bank defend it?",shock:"risk",regime:"fixed"},
+{tag:"EXPORT OPPORTUNITY",title:"The World Wants More",text:"Foreign incomes are rising. Econia's exporters see an opportunity. How does the exchange-rate regime change the outcome?",shock:"foreign",regime:"fixed"},
+{tag:"FINAL BOSS",title:"The Election Budget",text:"The government wants to boost spending, but the currency must remain fixed. Choose carefully.",shock:"fiscal",regime:"fixed"}];
+const scenarios={
+float:{
+fiscal:{y:"≈ No change",r:"Returns to r*",e:"Appreciates ↑",nx:"Falls ↓",cap:"Inflow → appreciation",is:-1,lm:0,good:"trade",
+text:"Government spending shifts IS right. Interest-rate pressure attracts capital inflows, so the currency appreciates. Appreciation makes exports relatively expensive and imports cheaper, reducing net exports. Under high capital mobility, the fall in net exports offsets the fiscal boost, leaving output close to its original level."},
+monetary:{y:"Rises ↑",r:"Returns to r*",e:"Depreciates ↓",nx:"Rises ↑",cap:"Outflow → depreciation",is:0,lm:1,good:"output",
+text:"More money shifts LM right and pushes the interest rate down. Capital flows out and the currency depreciates. Domestic goods become cheaper relative to foreign goods, so net exports rise and IS shifts right. Output increases. Monetary policy is powerful under a floating exchange rate."},
+foreign:{y:"Tends to rise ↑",r:"Returns to r*",e:"Appreciates ↑",nx:"Export boost partly offset",cap:"Inflow / currency pressure",is:1,lm:0,good:"trade",
+text:"Higher foreign income usually raises demand for Econia's exports, shifting IS right. Capital inflows put appreciation pressure on the currency. Appreciation then reduces net exports, offsetting part of the original export boost. The final output effect depends on the strength of each channel."},
+risk:{y:"May fall ↓",r:"Risk pressure ↑",e:"Depreciates ↓",nx:"Rises; cushions shock",cap:"Outflow",is:1,lm:0,good:"trade",
+text:"Investors move funds abroad, putting downward pressure on the currency. Depreciation can improve net exports and cushion the demand shock. If confidence and investment also fall, output may still decline. This is a simplified risk-shock scenario."}},
+fixed:{
+fiscal:{y:"Rises ↑",r:"≈ r*",e:"Peg maintained ⚓",nx:"May fall",cap:"Inflow; money supply rises",is:1,lm:1,good:"output",
+text:"Government spending shifts IS right and creates appreciation pressure. To defend the peg, the central bank buys foreign currency and supplies domestic money, shifting LM right. Output rises. Fiscal policy is powerful under a fixed exchange rate."},
+monetary:{y:"≈ No change",r:"Returns to r*",e:"Peg maintained ⚓",nx:"≈ No change",cap:"Outflow; money supply reversed",is:0,lm:0,good:"stability",
+text:"An attempted monetary expansion shifts LM right and puts downward pressure on the interest rate. Capital outflows create depreciation pressure. To defend the peg, the central bank sells reserves and withdraws domestic currency, reversing the expansion. Output returns close to its starting level."},
+foreign:{y:"Rises ↑",r:"≈ r*",e:"Peg maintained ⚓",nx:"Exports rise initially",cap:"Inflow; money supply rises",is:1,lm:1,good:"output",
+text:"Higher foreign income increases export demand and shifts IS right. Capital inflows create appreciation pressure. The central bank intervenes to maintain the peg, expanding the money supply and shifting LM right. Output rises."},
+risk:{y:"Falls / pressure ↓",r:"Pressure to rise",e:"Peg defended ⚓",nx:"No currency adjustment",cap:"Outflow; reserves used",is:-1,lm:-1,good:"stability",
+text:"Capital outflows put depreciation pressure on the currency. To defend the peg, the central bank sells foreign reserves and buys domestic currency, reducing the money supply and shifting LM left. Output can fall. If reserves or credibility run out, the peg may be abandoned or devalued."}}
+};
+function draw(c,kind,shift={is:0,lm:0}){let x=c.getContext("2d"),w=c.width,h=c.height,L=60,R=w-22,T=25,B=h-45;x.clearRect(0,0,w,h);x.fillStyle="#0d162b";x.fillRect(0,0,w,h);x.strokeStyle="#526382";x.lineWidth=2;x.beginPath();x.moveTo(L,T);x.lineTo(L,B);x.lineTo(R,B);x.stroke();x.fillStyle="#c1cde5";x.font="15px Arial";x.fillText("Interest rate (r)",5,17);x.fillText("Output (Y)",R-80,h-12);
+if(kind==="islm"){function curve(col,down,offset,label){x.strokeStyle=col;x.lineWidth=4;x.beginPath();for(let i=0;i<=100;i++){let t=i/100,xx=L+t*(R-L),yy=down?T+25+t*(B-T-70)+offset:B-20-t*(B-T-70)+offset;if(i===0)x.moveTo(xx,yy);else x.lineTo(xx,yy)}x.stroke();x.fillStyle=col;x.font="bold 17px Arial";x.fillText(label,R-45,(down?B-45:T+35)+offset)}curve("#52e0d0",true,shift.is*20,"IS");curve("#ffd166",false,-shift.lm*20,"LM");x.setLineDash([5,5]);x.strokeStyle="#91a3c8";x.beginPath();x.moveTo(L+15,B-115+shift.is*12-shift.lm*12);x.lineTo(R-10,B-115+shift.is*12-shift.lm*12);x.stroke();x.setLineDash([])}
+else{x.strokeStyle="#ff719a";x.lineWidth=4;x.beginPath();x.moveTo(L+5,B-115);x.lineTo(R-5,B-115);x.stroke();x.fillStyle="#ff9bb6";x.font="bold 16px Arial";x.fillText("BP ≈ r*",L+15,B-127);x.fillStyle="#c1cde5";x.font="14px Arial";x.fillText("High capital mobility",L+15,B-75);x.fillText("World interest rate",L+15,B-48)}}
+function graphs(is=0,lm=0){draw($("islm"),"islm",{is,lm});draw($("bp"),"bp")}
+function updateProfile(){ $("score").textContent=score;$("streak").textContent=streak;$("health").textContent=health+"%";$("healthbar").style.width=health+"%";let rank=score>=100?"Macro Master":score>=60?"Policy Pro":score>=25?"Curve Detective":"Rookie";$("rank").textContent=rank;$("level").textContent=score>=100?"LEVEL 4 · MACRO MASTER":score>=60?"LEVEL 3 · POLICY PRO":score>=25?"LEVEL 2 · STRATEGIST":"LEVEL 1 · ROOKIE";$("rankTip").textContent=score>=100?"🏆 Econia's future is in safe hands!":score>=60?"Great work! You're thinking like a policy adviser.":score>=25?"Nice progress. Watch how capital flows affect the currency.":"Earn points by making smart policy calls and completing the quiz."}
+function badge(id,yes){if(yes){$("b"+id).classList.add("earned");$("b"+id).textContent=$("b"+id).textContent.replace("🔒 ","✅ ")}}
+function decide(){let regime=$("regime").value,shock=$("shock").value,mob=$("mobility").value,goal=$("goal").value,s={...scenarios[regime][shock]};if(mob==="limited"){s.y=s.y+" (weaker effect)";s.text+=" With limited capital mobility, capital flows respond less strongly, so these textbook outcomes may be weaker."}
+let right=(goal==="output"&&s.good==="output")||(goal==="trade"&&s.good==="trade")||(goal==="stability"&&regime==="fixed"&&(shock==="risk"||shock==="monetary"))||(goal==="stability"&&regime==="float"&&shock==="risk");
+let pts=right?20:10;score+=pts;streak=right?streak+1:0;health=Math.max(25,Math.min(100,health+(right?4:-3)));round++;$("y").textContent=s.y;$("r").textContent=s.r;$("e").textContent=s.e;$("nx").textContent=s.nx;$("status").textContent=right?"✅ Smart strategy! +"+pts+" points":"🧠 Learning moment! +"+pts+" points";
+$("event").innerHTML="<strong>"+(right?"POLICY WIN! 🎉":"STRATEGY DEBRIEF 💡")+"</strong> "+(right?"Your policy choice matches the selected objective.":"Your answer earns learning points—compare the objective with the model's prediction.")+" Your mission: "+$("goal").selectedOptions[0].text+".";
+$("explanation").className="result"+(right?"":" bad");$("explanation").innerHTML="<h3>"+(right?"🎉 Great call, Chief!":"🧠 Here's the economics")+"</h3><strong>"+(regime==="float"?"Floating exchange rate":"Fixed exchange rate")+" · "+$("shock").selectedOptions[0].text+"</strong><p>"+s.text+"</p><p><strong>Capital-flow clue:</strong> "+s.cap+".</p><p><strong>Curve clue:</strong> "+(s.is>0?"IS shifts right. ":s.is<0?"IS shifts left. ":"IS does not shift directly. ")+(s.lm>0?"LM shifts right. ":s.lm<0?"LM shifts left. ":"LM does not shift directly.")+"</p><p><strong>Mission result:</strong> "+(right?"You chose a policy consistent with your objective.":"Think about whether the objective is output, stability, or net exports—and how the currency responds.")+"</p>";
+graphs(s.is,s.lm);if(regime==="fixed")badge(1,true);if(shock==="monetary")badge(2,true);badge(3,true);if(s.good==="trade")badge(4,true);updateProfile()}
+function next(){round++;let m=missions[(round-1)%missions.length];$("missionTag").textContent=m.tag;$("missionTitle").textContent=m.title;$("missionText").textContent=m.text;$("shock").value=m.shock;$("regime").value=m.regime;$("mobility").value="high";$("event").innerHTML="<strong>NEW CHALLENGE ⚡</strong> Mission "+(((round-1)%missions.length)+1)+" of "+missions.length+": read the briefing, set your objective, then make a policy call.";$("status").textContent="New mission loaded";$("y").textContent="—";$("r").textContent="—";$("e").textContent="—";$("nx").textContent="—";$("explanation").innerHTML="<h3>🧠 Strategy debrief</h3>Make your policy call to reveal what happens and why.";graphs()}
+const qs=[
+{q:"Floating rate + expansionary monetary policy: what usually happens with high capital mobility?",a:["Currency depreciates, net exports rise, output rises.","Currency appreciates, net exports fall, output stays unchanged.","The central bank must defend a fixed peg."],c:0,w:"Monetary expansion leads to outflow and depreciation; net exports and output rise."},
+{q:"Fixed rate + expansionary fiscal policy usually makes output…",a:["Fall because the currency floats.","Rise as central-bank intervention expands money supply.","Stay unchanged in every situation."],c:1,w:"Capital inflow creates appreciation pressure; intervention expands money supply and supports output."},
+{q:"Why is independent monetary policy ineffective under a fixed exchange rate?",a:["Money supply never matters.","Exports cannot change.","Defending the peg forces the central bank to reverse the monetary change."],c:2,w:"Intervention to maintain the peg offsets the attempted monetary expansion."},
+{q:"Currency appreciation generally does what to net exports, all else equal?",a:["Reduces net exports.","Raises net exports.","Has no possible effect."],c:0,w:"Appreciation makes domestic goods relatively more expensive to foreigners and imports cheaper at home."},
+{q:"Which curve shifts directly when the money supply increases?",a:["IS shifts left.","BP always shifts vertically.","LM shifts right/down."],c:2,w:"More real money balances shift LM right/down; later exchange-rate and net-export changes can affect IS."}
+];
+function makeQuiz(){$("quiz").innerHTML=qs.map((q,i)=>`<div class="quizq"><p>${i+1}. ${q.q}</p>${q.a.map((a,j)=>`<label><input type="radio" name="q${i}" value="${j}"><span>${a}</span></label>`).join("")}<div class="muted" id="why${i}" hidden></div></div>`).join("");$("quizFeedback").textContent=""}
+$("decide").onclick=decide;$("next").onclick=next;$("retryQuiz").onclick=makeQuiz;
+$("checkQuiz").onclick=()=>{let n=0,answered=0;qs.forEach((q,i)=>{let sel=document.querySelector(`input[name="q${i}"]:checked`),w=$("why"+i);w.hidden=false;if(sel){answered++;if(+sel.value===q.c)n++;w.textContent=(+sel.value===q.c?"✅ Correct! ":"💡 Not quite. ")+q.w}});if(!quizBonus){score+=n*5;quizBonus=true}updateProfile();$("quizFeedback").textContent=`You scored ${n}/${qs.length}! ${n===5?"Perfect score! You're a Macro Master in the making!": "Review the explanations and try the quiz again."} ${quizBonus?"Quiz bonus applied (once per game).":""}`};
+makeQuiz();graphs();updateProfile();
+</script></body></html>
